@@ -26,9 +26,6 @@ ufw reload
 ufw status numbered
 ```
 
-## Проверка работы
-Откройте IP-адрес сервера в браузере — должна открыться стартовая страница Apache.
-
 ## Размещение сайта и настройка прав
 1. Создайте каталог для сайта:
    ```bash
@@ -37,20 +34,12 @@ ufw status numbered
    chmod -R 755 /var/www/example
    ```
 2. Создайте файл index.html:
+    
+   В директории `Simple-HTML` этого репозитория находится пример файла `index.html`, который можно использовать для проверки работы. Просто скопируйте его содержимое в:
    ```bash
    vim /var/www/example/index.html
    ```
-   Пример содержимого:
-   ```html
-   <html>
-       <head>
-           <title>Welcome to EXAMPLE.COM!</title>
-       </head>
-       <body>
-           <h1>Success!  The EXAMPLE.COM virtual host is working!</h1>
-       </body>
-   </html>
-   ```
+
 3. Измените права доступа:
    ```bash
    chown $USER:$USER /var/www/example/index.html
@@ -89,6 +78,9 @@ ufw status numbered
    ```bash
    systemctl restart apache2
    ```
+
+## Проверка работы
+Откройте IP-адрес сервера в браузере — должна открыться стартовая страница Apache.
 
 ## Структура каталогов
 - `/var/www/html` — основной каталог для размещения сайта по умолчанию
